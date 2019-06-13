@@ -12,23 +12,20 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (Stream str = new FileStream(@"C:\Users\Stiaan Diedericks\Desktop\Backup\Derdejaar\ITRW 316\Eksamen\WebApplication1\test.txt", FileMode.Open, FileAccess.Read))
-            { 
-                using (StreamReader reader = new StreamReader(str))
-                { 
-                    string textInFile = reader.ReadLine();
-                    TextBox1.Text = textInFile;
-                }
-            }
+           
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
+            string textInFile = File.ReadAllText(@"C:\Users\Stiaan Diedericks\Desktop\Backup\Derdejaar\ITRW 316\Eksamen\WebApplication1\test.txt");
+            textInFile = textInFile.Replace(TextBox1.Text, TextBox2.Text);
             string filepath = @"C:\Users\Stiaan Diedericks\Desktop\Backup\Derdejaar\ITRW 316\Eksamen\WebApplication1\test.txt";
             using (StreamWriter writer = new StreamWriter(filepath, false))
             {
-                writer.WriteLine(TextBox2.Text);
+                writer.WriteLine(textInFile);
                 writer.Dispose();
             }
+         
+           
         }
     }
 }
