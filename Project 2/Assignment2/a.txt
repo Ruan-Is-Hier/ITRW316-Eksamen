@@ -1,9 +1,0 @@
-Connection = DbConnection
-DatabaseHandler = DbHandler
-deleteData = DataDelete
-requestData = DataRequest
-project2 = assignment2
-processes = que
-process_num = number_process
-arrivaltime = arrival_time
-process_length = execute_time
